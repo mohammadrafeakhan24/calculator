@@ -9,7 +9,7 @@ print("3. Multiply")
 print("5. Divide")
 print("select from '1', '2', '3', '4'")
 
-selectOption = input("Please select the option ")
+selectOption = input("Please select one of the option ")
 
 
 firstnum = float(input("Enter first number "))
