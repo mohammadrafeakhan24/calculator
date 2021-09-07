@@ -6,7 +6,7 @@ print("Chosse which operation you want to do")
 print("1. Add")
 print("2. Subtract")
 print("3. Multiply")
-print("5. Divide")
+print("4. Divide")
 print("select from '1', '2', '3', '4'")
 
 selectOption = input("Please select one of the option ")
