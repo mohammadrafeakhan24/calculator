@@ -1,54 +1,55 @@
+from colors import bcolors
+import inquirer
+
 # Welcoming User
-print("Calculator App")
+print(bcolors.HEADER + "Calculator App")
 print("")
-# Chosse Option
-print("Chosse which operation you want to do")
-print("1. Add")
-print("2. Subtract")
-print("3. Multiply")
-print("4. Divide")
-print("select from '1', '2', '3', '4'")
 
-selectOption = input("Please select one of the option ")
+import inquirer
+questions = [
+  inquirer.List('option',
+                message="Chosse which operation you want to do",
+                choices=['Add', 'Subtract', 'Multiply', 'Divide'],
+        ),
+]
 
+option = inquirer.prompt(questions)["option"]
 
-firstnum = float(input("Enter first number "))
-secondnum = float(input("Enter second number "))
+firstnum = float(input(bcolors.OKCYAN + "Enter first number: " + bcolors.ENDC))
+secondnum = float(input((bcolors.OKCYAN + "Enter second number: " + bcolors.ENDC)))
 
 
 # addition 
 def add():
-    print("You have selected addition")
+    print(bcolors.HEADER + "You have selected addition")
     result4add = firstnum + secondnum
-    print("Your result is: ", result4add)
+    print(bcolors.OKGREEN + "Your result is: ", result4add)
 
 # subtraction
 def subtract():
-    print("You have selected Subtraction")
+    print(bcolors.HEADER + "You have selected Subtraction")
     result4sub = firstnum - secondnum
-    print("Your result is: ", result4sub)
+    print(bcolors.OKGREEN + "Your result is: ", result4sub)
 
 
 # multiplication 
 def multiplication():
-    print("You have selected Multiplication")
+    print(bcolors.HEADER + "You have selected Multiplication")
     result4multipy = firstnum * secondnum
-    print("Your result is: ", result4multipy)
+    print(bcolors.OKGREEN + "Your result is: ", result4multipy)
 
 # divide
 def divide():
-    print("You have selected Division")
+    print(bcolors.HEADER + "You have selected Division")
     result4div = firstnum / secondnum
-    print("Your result is: ", result4div)
+    print(bcolors.OKGREEN + "Your result is: ", result4div)
 
 
-if (selectOption == '1'):
+if (option == 'Add'):
     add()
-elif (selectOption == '2'):
+elif (option == 'Subtract'):
     subtract()
-elif (selectOption == '3'):
+elif (option == 'Multiply'):
     multiplication()
-elif (selectOption == '4'):
+elif (option == 'Divide'):
     divide()
-else:
-    print("Error! please select suitable option")
