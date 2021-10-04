@@ -1,9 +1,8 @@
-import colorama
+from colors import bcolors
 import inquirer
-from colorama import Fore
 
 # Welcoming User
-print(Fore.MAGENTA + "Calculator App")
+print(bcolors.HEADER + "Calculator App")
 print("")
 
 import inquirer
@@ -16,34 +15,34 @@ questions = [
 
 option = inquirer.prompt(questions)["option"]
 
-firstnum = float(input(Fore.CYAN + "Enter first number: " + Fore.RESET))
-secondnum = float(input((Fore.CYAN + "Enter second number: " + Fore.RESET)))
+firstnum = float(input(bcolors.OKCYAN + "Enter first number: " + bcolors.ENDC))
+secondnum = float(input((bcolors.OKCYAN + "Enter second number: " + bcolors.ENDC)))
 
 
 # addition 
 def add():
-    print(Fore.MAGENTA + "You have selected addition")
+    print(bcolors.HEADER + "You have selected addition")
     result4add = firstnum + secondnum
-    print(Fore.GREEN + "Your result is: ", result4add)
+    print(bcolors.OKGREEN + "Your result is: ", result4add)
 
 # subtraction
 def subtract():
-    print(Fore.MAGENTA + "You have selected Subtraction")
+    print(bcolors.HEADER + "You have selected Subtraction")
     result4sub = firstnum - secondnum
-    print(Fore.GREEN + "Your result is: ", result4sub)
+    print(bcolors.OKGREEN + "Your result is: ", result4sub)
 
 
 # multiplication 
 def multiplication():
-    print(Fore.MAGENTA + "You have selected Multiplication")
+    print(bcolors.HEADER + "You have selected Multiplication")
     result4multipy = firstnum * secondnum
-    print(Fore.GREEN + "Your result is: ", result4multipy)
+    print(bcolors.OKGREEN + "Your result is: ", result4multipy)
 
 # divide
 def divide():
-    print(Fore.MAGENTA + "You have selected Division")
+    print(bcolors.HEADER + "You have selected Division")
     result4div = firstnum / secondnum
-    print(Fore.GREEN + "Your result is: ", result4div)
+    print(bcolors.OKGREEN + "Your result is: ", result4div)
 
 
 if (option == 'Add'):
