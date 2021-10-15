@@ -44,8 +44,11 @@ def multiplication():
 # divide
 def divide():
     print(Fore.MAGENTA + "You have selected Division")
-    result4div = firstnum / secondnum
-    print(Fore.GREEN + "Your result is: ", result4div)
+    try:
+        result4div = firstnum / secondnum
+        print(Fore.GREEN + "Your result is: ", result4div)
+    except ZeroDivisionError:
+        print(Fore.RED + "Error: Can't divide by zero."
 
 # Exponent
 def exponent():
