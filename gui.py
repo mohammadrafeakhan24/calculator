@@ -66,16 +66,16 @@ def output(text: str, bg='green'):
 
 
 # Calculating functions
-def add(num1: int, num2: int):
+def add(num1: float, num2: float):
     return f'{num1} + {num2} = {num1 + num2}'
-def subtract(num1: int, num2: int):
+def subtract(num1: float, num2: float):
     if num1 == num2:
         return f'{num1} - {num2} = 0'
     else:
         return f'{num1} - {num2} = {num1-num2}\n{num2} - {num1} = {num2-num1}'
-def multiply(num1: int, num2: int):
+def multiply(num1: float, num2: float):
     return f'{num1} X {num2} = {num1*num2}'
-def divide(num1: int, num2: int):
+def divide(num1: float, num2: float):
     try:
         if num1 == num2:
             return f'{num1} / {num2} = 1'
