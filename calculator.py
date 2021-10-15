@@ -10,7 +10,7 @@ import inquirer
 questions = [
   inquirer.List('option',
                 message="Chosse which operation you want to do",
-                choices=['Add', 'Subtract', 'Multiply', 'Divide'],
+                choices=['Add', 'Subtract', 'Multiply', 'Divide', 'Exponent'],
         ),
 ]
 
@@ -45,6 +45,12 @@ def divide():
     result4div = firstnum / secondnum
     print(Fore.GREEN + "Your result is: ", result4div)
 
+# Exponent
+def exponent():
+    print(Fore.MAGENTA + "You have selected Exponent")
+    result4exp = firstnum**secondnum
+    print(Fore.GREEN + "Your result is: ", result4exp)
+
 
 if (option == 'Add'):
     add()
@@ -54,3 +60,5 @@ elif (option == 'Multiply'):
     multiplication()
 elif (option == 'Divide'):
     divide()
+elif (option == 'Exponent'):
+    exponent()
