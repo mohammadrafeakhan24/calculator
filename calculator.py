@@ -1,6 +1,7 @@
 import colorama
 import inquirer
 from colorama import Fore
+from math import factorial as _factorial
 
 # Welcoming User
 print(Fore.MAGENTA + "Calculator App")
@@ -10,14 +11,15 @@ import inquirer
 questions = [
   inquirer.List('option',
                 message="Chosse which operation you want to do",
-                choices=['Add', 'Subtract', 'Multiply', 'Divide', 'Exponent'],
+                choices=['Add', 'Subtract', 'Multiply', 'Divide', 'Exponent', 'Factorial'],
         ),
 ]
 
 option = inquirer.prompt(questions)["option"]
 
 firstnum = float(input(Fore.CYAN + "Enter first number: " + Fore.RESET))
-secondnum = float(input((Fore.CYAN + "Enter second number: " + Fore.RESET)))
+if not (option == 'Factorial'):  # Factorial requires only one number.
+    secondnum = float(input((Fore.CYAN + "Enter second number: " + Fore.RESET)))
 
 
 # addition 
@@ -51,6 +53,15 @@ def exponent():
     result4exp = firstnum**secondnum
     print(Fore.GREEN + "Your result is: ", result4exp)
 
+# Factorial
+def factorial():
+    print(Fore.MAGENTA + "You have selected Factorial")
+    try:
+        result4facto = _factorial(firstnum)
+        print(result4facto)
+    except ValueError:
+        print(Fore.RED + f"Error: Unable to find the factorial of {firstnum}. Make sure that {firstnum} is a whole number")
+
 
 if (option == 'Add'):
     add()
@@ -62,3 +73,5 @@ elif (option == 'Divide'):
     divide()
 elif (option == 'Exponent'):
     exponent()
+elif (option == 'Factorial'):
+    factorial()
