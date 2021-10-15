@@ -30,7 +30,7 @@ def get_numbers():
 
 option_selector = tk.Listbox(master=root)
 option_selector.pack(side=tk.TOP)
-for element in ['Add', 'Subtract', 'Multiply', 'Divide']:
+for element in ['Add', 'Subtract', 'Multiply', 'Divide', 'Exponent']:
     option_selector.insert(0, element)
 current_option_selector_element = None
 def on_option_selector_element_switch(event):
@@ -83,6 +83,11 @@ def divide(num1: float, num2: float):
             return f'{num1} / {num2} = {num1/num2}\n{num2} / {num1} = {num2/num1}'
     except ZeroDivisionError:
         return 'Don\'t use 0'
+def exponent(num1: float, num2: float):
+    if num1 == num2:
+        return f'{num1} ^ {num2} = {num1**num2}'
+    else:
+        return f'{num1} ^ {num2} = {num1**num2}\n{num2} ^ {num1} = {num2**num1}'
 
 
 # GUI functionalities
@@ -97,6 +102,8 @@ def calculate():
             output(multiply(numbers[0], numbers[1]))
         elif current_option_selector_element == 'Divide':
             output(divide(numbers[0], numbers[1]))
+        elif current_option_selector_element == 'Exponent':
+            output(exponent(numbers[0], numbers[1]))
         else:
             output(text='ERROR: Select Addition, Subtraction, Multiplication or Division')
     except IndexError:
