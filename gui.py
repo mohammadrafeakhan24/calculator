@@ -1,4 +1,5 @@
 import tkinter as tk
+from math import factorial as _factorial
 
 
 # The window
@@ -30,7 +31,7 @@ def get_numbers():
 
 option_selector = tk.Listbox(master=root)
 option_selector.pack(side=tk.TOP)
-for element in ['Add', 'Subtract', 'Multiply', 'Divide', 'Exponent']:
+for element in ['Add', 'Subtract', 'Multiply', 'Divide', 'Exponent', 'Factorial']:
     option_selector.insert(0, element)
 current_option_selector_element = None
 def on_option_selector_element_switch(event):
@@ -88,26 +89,42 @@ def exponent(num1: float, num2: float):
         return f'{num1} ^ {num2} = {num1**num2}'
     else:
         return f'{num1} ^ {num2} = {num1**num2}\n{num2} ^ {num1} = {num2**num1}'
+def factorial():
+    try:
+        numbers = get_numbers()
+        if len(numbers) == 0:
+            output('Error: Atleast one value must be filled!', bg='red')
+        else:
+            output_text = ''
+            for number in numbers:
+                num = int(round(number, 0))
+                output_text += f'{num}! = {_factorial(num)}\n'
+            output(output_text.strip('\n'))
+    except ValueError:
+        output('ERROR: Unable to find factorial, make sure that only whole numbers are used', bg='red')
 
 
 # GUI functionalities
 def calculate():
-    numbers = get_numbers()
-    try:
-        if current_option_selector_element == 'Add':
-            output(add(numbers[0], numbers[1]))
-        elif current_option_selector_element == 'Subtract':
-            output(subtract(numbers[0], numbers[1]))
-        elif current_option_selector_element == 'Multiply':
-            output(multiply(numbers[0], numbers[1]))
-        elif current_option_selector_element == 'Divide':
-            output(divide(numbers[0], numbers[1]))
-        elif current_option_selector_element == 'Exponent':
-            output(exponent(numbers[0], numbers[1]))
-        else:
-            output(text='ERROR: Select Addition, Subtraction, Multiplication or Division')
-    except IndexError:
-        output(text='ERROR: Make sure that both values are filled!', bg='red')
+    if current_option_selector_element == 'Factorial':
+        factorial()
+    else:
+        numbers = get_numbers()
+        try:
+            if current_option_selector_element == 'Arrdd':
+                output(add(numbers[0], numbers[1]))
+            elif current_option_selector_element == 'Subtract':
+                output(subtract(numbers[0], numbers[1]))
+            elif current_option_selector_element == 'Multiply':
+                output(multiply(numbers[0], numbers[1]))
+            elif current_option_selector_element == 'Divide':
+                output(divide(numbers[0], numbers[1]))
+            elif current_option_selector_element == 'Exponent':
+                output(exponent(numbers[0], numbers[1]))
+            else:
+                output(text='ERROR: Select Addition, Subtraction, Multiplication or Division')
+        except IndexError:
+            output(text='ERROR: Make sure that both values are filled!', bg='red')
 set_calculate_button_command(calculate)
 
 
